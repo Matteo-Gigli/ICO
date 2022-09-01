@@ -23,7 +23,10 @@
 <br>
 
 <p><strong>This is the contract to manage all.</strong></p>
-<p><strong>Functions to start with are: </strong></p>
+<br>
+<h3>Functions to start with are:</h3>
+<br>
+
 <p><strong>initIcoToken and the initIcoNft (passing IcoToken address and IcoNft address).</strong></p>
 
 <br>
@@ -31,7 +34,7 @@
 
 <br>
 
-<p><strong>buyIcoTokens(uint amount)</strong></p>
+<h3>buyIcoTokens(uint amount)</h3>
 <p><strong>We can buy some tokens with this function.</strong></p>
 <p><strong>Amount can't exceed total supply and should be > 0.</strong></p>
 <p><strong>Price per token is 0.001 ether, so if we are going to buy 100 we will pay 0.1 ether.</strong></p>
@@ -41,8 +44,12 @@
 
 
 <br>
-<p><strong>claimEth()</strong></p>
+<h3>claimEth()</h3>
 <p><strong>With this function, only the owner of the contract, can withdraw ethers from the contract.</strong></p>
+
+<br>
+<h3>claimTokens()</h3>
+<p><strong>With this function we can claim our 10 tokens more, and then we burn our NFT.</strong></p>
 
 
 
