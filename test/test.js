@@ -81,25 +81,19 @@ describe("Setting some test for the functionality of the contracts", function() 
 
 
 
-
-
     it("should be able to claim 10 more tokens because you are the owner of nft", async()=>{
         let balanceAccount1BeforeClaim = await icoToken.balanceOf(account1.address);
-        let tokenRetiredStatusBeforeClaim = await icoExchange.retiredTokens(account1.address);
+        let nftBalanceAccount1BeforeClaim = await icoNft.balanceOf(account1.address);
+        let nftTotalSupplyBeforeClaim = await icoNft.nftSupply();
         await icoExchange.connect(account1).claimTokens(0);
-        let tokenRetiredStatusAfterClaim = await icoExchange.retiredTokens(account1.address);
+        let nftBalanceAccount1AfterClaim = await icoNft.balanceOf(account1.address);
         let balanceAccount1AfterClaim = await icoToken.balanceOf(account1.address);
+        let nftTotalSupplyAfterClaim = await icoNft.nftSupply();
         expect(balanceAccount1BeforeClaim).to.be.equal("100000000000000000000");
         expect(balanceAccount1AfterClaim).to.be.equal("110000000000000000000");
-        expect(tokenRetiredStatusBeforeClaim).to.be.equal(false);
-        expect(tokenRetiredStatusAfterClaim).to.be.equal(true);
+        expect(nftBalanceAccount1BeforeClaim).to.be.equal(1);
+        expect(nftBalanceAccount1AfterClaim).to.be.equal(0);
+        expect(nftTotalSupplyBeforeClaim).to.be.equal(100);
+        expect(nftTotalSupplyAfterClaim).to.be.equal(99);
     });
-
-
-    it("should revert the claimTokens function if you already claim your tokens", async()=>{
-        await expectRevert(icoExchange.connect(account1).claimTokens(0),
-            "Tokens already retired");
-    });
-
-
 });

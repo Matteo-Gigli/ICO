@@ -17,14 +17,9 @@ contract ICONft is ERC721URIStorage, Ownable{
     ICOToken icoToken;
     ICOExchange icoExchange;
 
-    uint private nftSupply;
+    uint public nftSupply;
 
-    string private provenanceHash;
-
-    modifier onlyIcoExchange(){
-        msg.sender == address(icoExchange);
-        _;
-    }
+    string public provenanceHash;
 
 
 
@@ -73,12 +68,18 @@ contract ICONft is ERC721URIStorage, Ownable{
 
 
 
-    function mintNft(address tokenOwner)public onlyIcoExchange{
+    function mintNft(address tokenOwner)public{
         require(balanceOf(msg.sender) == 0, "Only 1 mint is admitted!");
         uint newId = _tokenIds.current();
-        require(newId < nftSupply, "Max Supply Reached!");
         _safeMint(tokenOwner, newId);
         _tokenIds.increment();
+    }
+
+
+    function burnToken(address owner, uint tokenId)external{
+        require(owner == ownerOf(tokenId));
+        nftSupply -= 1;
+        super._burn(tokenId);
     }
 
 }

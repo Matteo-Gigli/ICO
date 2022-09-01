@@ -15,8 +15,6 @@ contract ICOExchange is Ownable, ReentrancyGuard{
     ICOToken private icoToken;
     ICONft private icoNft;
 
-    mapping(address => bool) public retiredTokens;
-
 
 
     constructor(){
@@ -44,7 +42,6 @@ contract ICOExchange is Ownable, ReentrancyGuard{
             msg.sender != icoToken.owner(),
             "Admin: Can't buy tokens!"
             );
-        require(amount > 0, "Amount not accepted!");
         uint unitaryTokenCost = 0.001 ether;
         require(icoToken.balanceOf(msg.sender) == 0, "Already bought your tokens!");
         require(msg.value == unitaryTokenCost * amount, "Set Right Price in Wei!");
@@ -57,9 +54,8 @@ contract ICOExchange is Ownable, ReentrancyGuard{
 
 
     function claimTokens(uint _tokenIds)public{
-        require(retiredTokens[msg.sender] == false, "Tokens already retired");
         require(icoNft.ownerOf(_tokenIds) == msg.sender, "Not your Token");
-        retiredTokens[msg.sender] = true;
+        icoNft.burnToken(msg.sender, _tokenIds);
         uint rewardsNft = 10 * 10**18;
         icoToken.transferFrom(icoToken.owner(), msg.sender, rewardsNft);
     }
