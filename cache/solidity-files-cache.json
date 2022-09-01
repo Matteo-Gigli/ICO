@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\Danilo Gigli\\Desktop\\Solidity\\myProjects\\ICO\\contracts\\ICOExchange.sol": {
-      "lastModificationDate": 1662041992749,
-      "contentHash": "fb380293eeb332db24047e2243463b2a",
+      "lastModificationDate": 1662043386241,
+      "contentHash": "4a071b13de562cb49f2dec7071aa6ebb",
       "sourceName": "contracts/ICOExchange.sol",
       "solcConfig": {
         "version": "0.8.4",
