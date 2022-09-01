@@ -44,6 +44,7 @@ contract ICOExchange is Ownable, ReentrancyGuard{
             msg.sender != icoToken.owner(),
             "Admin: Can't buy tokens!"
             );
+        require(amount > 0, "Amount not accepted!");
         uint unitaryTokenCost = 0.001 ether;
         require(icoToken.balanceOf(msg.sender) == 0, "Already bought your tokens!");
         require(msg.value == unitaryTokenCost * amount, "Set Right Price in Wei!");
