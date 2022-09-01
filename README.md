@@ -1,7 +1,7 @@
 # ICO
 
 
-<h2>💡 ICO (Initial Coin Offering) </h2>
+<h1>💡 ICO (Initial Coin Offering) </h1>
 <br>
 
 <p><strong>I just created an ICO.</strong></p>
@@ -11,7 +11,7 @@
 <br>
 
 
-<h3>💰 ICOToken.sol</h3>
+<h2>💰 ICOToken.sol</h2>
 <br>
 <p><strong>Simple Erc20 Token where we are going to override some functions.</strong></p>
 <p><strong>To use this contract, we must to pass only one parameter and it's totalSupply for our new Token.</strong></p>
@@ -19,7 +19,7 @@
 
 <br>
 
-<h3>📊 ICOExchange.sol</h3>
+<h2>📊 ICOExchange.sol</h2>
 <br>
 
 <p><strong>This is the contract to manage all.</strong></p>
@@ -50,10 +50,10 @@
 <br>
 <h3>claimTokens()</h3>
 <p><strong>With this function we can claim our 10 tokens more, and then we burn our NFT.</strong></p>
+<br>
 
 
-
-<h3>🗿 ICONft.sol</h3>
+<h2>🗿 ICONft.sol</h2>
 <br>
 <p><strong>This is a simple contract for our custom ERC721</strong></p>
 <br>
